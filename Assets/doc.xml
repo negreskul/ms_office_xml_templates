@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+                <mydata xmlns = "http://CustomDemoXML.htm">
+                    <Contacts> 
+                        <Contact> 
+                        <Name>NEW NAME</Name> 
+                        <Phone Type="Home">NEW HOME NUMBER</Phone> 
+                        <Phone Type="Work">aaaaaaaaaaaaaaaaaaaa</Phone> 
+                        <Phone Type="Mobile">mobileeeeeeee</Phone> 
+                        <Address> 
+                            <Street1>123 Main St</Street1> 
+                            <City>Mercer Island</City> 
+                            <State>qwertyuilkjbhghfgdgsg</State> 
+                            <Postal>68042</Postal> 
+                        </Address> 
+                        </Contact> 
+                        <Contact> 
+                        <Name>Dorothy Lee</Name> 
+                        <Phone Type="Home">910-555-1212</Phone> 
+                        <Phone Type="Work">h e l p  m e</Phone> 
+                        <Phone Type="Mobile">336-555-0005</Phone> 
+                        <Address> 
+                            <Street1>ленинский проспект дом 4 ска</Street1> 
+                            <City>москва</City> 
+                            <State>россия</State> 
+                            <Postal>хз</Postal> 
+                        </Address> 
+                        </Contact>
+                    </Contacts>
+                </mydata>
