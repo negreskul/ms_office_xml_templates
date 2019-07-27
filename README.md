@@ -9,4 +9,9 @@
 ## Для запуска необходимо:
 
 1. Склонировать репозиторий
-2. Запустить в Visual Studio (2017)
+2. Запустить решение (файл `*.sln`) в `Visual Studio` (2017 и страше) c `.NET Framework 4.6.1`
+3. Скачать `NuGet` пакет, который скажет проект. Или он автоматически скачается
+4. Собрать и запустить проект `WindowsFormsApp1`
+5. Выбрать XML и Template из папки `ms_office_xml_templates\Assets`
+6. Нажать Generate
+7. Рядом с экзешником в папке `ms_office_xml_templates\WindowsFormsApp1\bin\Debug` будет файл `new_file.docx`
