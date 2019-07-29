@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ConsoleApp1;
 
 namespace WindowsFormsApp1
 {
@@ -19,20 +18,20 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            Class2.GenerateXml();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "XML Files (*.xml)|*.xml";
             openFileDialog1.FilterIndex = 0;
-            openFileDialog1.DefaultExt = "xml";
+            openFileDialog1.FileName = null;
             bool t = true;
             while (t)
             {
                 t = false;
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    checkBox1.Checked = true;
                     if (!String.Equals(Path.GetExtension(openFileDialog1.FileName),
                                        ".xml",
                                        StringComparison.OrdinalIgnoreCase))
@@ -48,25 +47,32 @@ namespace WindowsFormsApp1
                         xmlData = openFileDialog1.FileName;
                     }
                 }
+                else
+                {
+                    checkBox1.Checked = false;
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Word File (.docx)|*.docx";
+            openFileDialog1.Filter = "Word File (*.docx)|*.docx|OpenDocument Text File (*.odt)|*.odt";
             openFileDialog1.FilterIndex = 0;
-            openFileDialog1.DefaultExt = "docx";
+            openFileDialog1.FileName = null;
             bool t = true;
             while (t)
             {
                 t = false;
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    if (!String.Equals(Path.GetExtension(openFileDialog1.FileName),
+                    checkBox2.Checked = true;
+                    if ((!String.Equals(Path.GetExtension(openFileDialog1.FileName),
                                        ".docx",
-                                       StringComparison.OrdinalIgnoreCase))
+                                       StringComparison.OrdinalIgnoreCase)) && (!String.Equals(Path.GetExtension(openFileDialog1.FileName),
+                                       ".odt",
+                                       StringComparison.OrdinalIgnoreCase)))
                     {
-                        MessageBox.Show("The type of the selected file is not supported by this application. You must select a .docx file.",
+                        MessageBox.Show("The type of the selected file is not supported by this application. You must select either a .docx file or an .odt file.",
                                         "Invalid File Type",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error);
@@ -77,12 +83,49 @@ namespace WindowsFormsApp1
                         template = openFileDialog1.FileName;
                     }
                 }
+                else
+                {
+                    checkBox2.Checked = false;
+                }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Class1.GenerateDocument(xmlData, template, "new_file.docx");
+            if (String.Equals(Path.GetExtension(openFileDialog1.FileName),
+                                       ".docx",
+                                       StringComparison.OrdinalIgnoreCase))
+            {
+                GenerateDOCX.GenerateDocument(xmlData, template, "new_file.docx");
+            }
+            else
+            {
+                GenerateODT.GenerateDocument(xmlData, template, "new_file.odt");
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if  ((checkBox1.Checked == true) && (checkBox2.Checked == true))
+            {
+                button3.Enabled = true;
+            }
+            else
+            {
+                button3.Enabled = false;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((checkBox1.Checked == true) && (checkBox2.Checked == true))
+            {
+                button3.Enabled = true;
+            }
+            else
+            {
+                button3.Enabled = false;
+            }
         }
     }
 }

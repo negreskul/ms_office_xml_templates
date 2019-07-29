@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DocumentFormat.OpenXml.Packaging;
+﻿using DocumentFormat.OpenXml.Packaging;
 using System.IO;
+using System.Windows.Forms;
 
-namespace ConsoleApp1
+namespace WindowsFormsApp1
 {
-    class Class1
+    class GenerateDOCX
     {
         public static void GenerateDocument(string xmlData, string template, string output)
         {
@@ -16,9 +12,7 @@ namespace ConsoleApp1
             {
                 File.Delete(output);
             }
-
             File.Copy(template, output);
-
             using (WordprocessingDocument wordDoc = WordprocessingDocument.Open(output, true))
             {
                 MainDocumentPart mainPart = wordDoc.MainDocumentPart;
@@ -28,7 +22,8 @@ namespace ConsoleApp1
                 {
                     myXmlPart.FeedData(stream);
                 }
-            }          
+            }
+            MessageBox.Show("Document successfully generated.", "Complete");
         }
     }
 }
