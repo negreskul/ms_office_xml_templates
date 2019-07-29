@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
                 <mydata xmlns = "http://CustomDemoXML.htm">
                     <Contacts> 
                         <Contact> 
                         <Name>NEW NAME</Name> 
                         <Phone Type="Home">NEW HOME NUMBER</Phone> 
                         <Phone Type="Work">aaaaaaaaaaaaaaaaaaaa</Phone> 
-                        <Phone Type="Mobile">mobileeeeeeee</Phone> 
+                        <Phone Type="Mobile">иииииииииииииииииииииииииииииииии</Phone> 
                         <Address> 
                             <Street1>123 Main St</Street1> 
                             <City>Mercer Island</City> 
